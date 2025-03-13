@@ -1,0 +1,21 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+
+.wraper{
+  width: 1440px;
+  margin: 0 auto;
+}
+.container{
+  width: 1170px;
+  margin: 0 auto;
+}
+input {
+  &:focus{
+    outline: none;
+  }
+}
