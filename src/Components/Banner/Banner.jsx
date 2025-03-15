@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
-import './Banner.scss';
-import Carousel from 'react-bootstrap/Carousel';
-import bannerImage from '../../assets/image/banner.png';
-import { getCategories } from '../../redux/Cotegory/CotegorySlice';
 import { useDispatch, useSelector } from 'react-redux';
-import phone from '../../assets/image/phone.png';
-import { FaApple } from "react-icons/fa6";
+import Carousel from 'react-bootstrap/Carousel';
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import { FaApple } from "react-icons/fa6";
+
+import phone from '../../assets/image/phone.png';
 import smsung from '../../assets/image/large.jpg'
 import ps5black from '../../assets/image/psBlack5.png'
+import { getCategories } from '../../redux/Cotegory/CotegorySlice';
+import './Banner.scss';
+import { Link } from 'react-router-dom';
 
 
 function Banner() {
@@ -29,9 +30,11 @@ function Banner() {
         <div className='banner container'>
             <div className='side-bar'>
                 <ul>
-                    {Array.isArray(categories) && categories.map((item) => (
-                        <li key={item.id}>
-                            {item}
+                    {Array.isArray(categories) && categories.map((item, index) => (
+                        <li key={index}>
+                            <Link to={`/product/${item}`}>
+                                {item}
+                            </Link>
                         </li>
                     ))}
                 </ul>
@@ -65,7 +68,7 @@ function Banner() {
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='promo-banner'>
-                        <img style={{width:"100%"}} src={ps5black} alt="" />
+                            <img style={{ width: "100%" }} src={ps5black} alt="" />
 
                         </div>
                         <Carousel.Caption>

@@ -1,14 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const API = "https://67d015f4823da0212a848a3b.mockapi.io/Gadgets";
+import { apiClient } from "../../axios/apiClient";
 
 export const getGadgets = createAsyncThunk(
     "gadget/getGadgets",  
     async (_, thunkAPI) => {
         try {
-            const res = await axios.get(API);
-            return res.data;
+            const res = await apiClient.get('/products');
+            // console.log(res.data.products);
+            return res.data.products;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
@@ -16,7 +15,7 @@ export const getGadgets = createAsyncThunk(
 );
 
 const gadgetSlice = createSlice({
-    name: "gadget", 
+    name: "gadgets", 
     initialState: {
         gadgets: [],
         loading: false,
@@ -41,3 +40,4 @@ const gadgetSlice = createSlice({
 });
 
 export default gadgetSlice.reducer;
+

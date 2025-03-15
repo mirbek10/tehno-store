@@ -6,6 +6,7 @@ import Contact from "./Pages/Contact";
 import Service from "./Pages/Service";
 import SIgniIn from "./Pages/rgestration/SIgniIn";
 import SigneUP from "./Pages/rgestration/SigneUP";
+import Cotegory from "./Pages/Cotegory/Cotegory";
 
 
 
@@ -20,6 +21,7 @@ export const myRouter = createBrowserRouter([
             { path: "/service", element: <Service/> },
             { path: "/sign-in", element: <SIgniIn/> },
             { path: "/sign-up", element: <SigneUP/> },
+            { path: "/product/:cotegory", element: <Cotegory/> }, 
             
         ]
     }
