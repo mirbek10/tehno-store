@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './header.scss'
 import { FaRegHeart } from "react-icons/fa6";
 import { FaCartArrowDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearch } from '../../redux/Product/ProductSlice';
 
 
 function Header() {
+    const dispatch = useDispatch();
+    const [text, setText] = useState('')
+
+
+    function handlKyeDown (e)  {
+        if (e.key === 'Enter') {
+            dispatch(setSearch(text))
+            setText('')
+        }
+    }
     return (
         <header className='header'>
             <div className='top-Header'>
@@ -41,12 +53,22 @@ function Header() {
                 </div>
                 <div className="header-right">
                     <div className="search">
-                        <input type="text" placeholder='What are you looking for?' />
+                        <input
+                        value={text}
+                        onChange={(e)=>setText(e.target.value)}
+                        onKeyDown={handlKyeDown}
+                        type="text"
+                         placeholder='What are you looking for?' />
                         <CiSearch />
                     </div>
                     <div className="icons">
-                        <FaRegHeart />
-                        <FaCartArrowDown />
+                        <Link to='wish-list'>
+                            <FaRegHeart />
+                        </Link>
+                        <Link to='/cart'>
+                            <FaCartArrowDown />
+                        </Link>
+                        
                     </div>
                 </div>
             </div>

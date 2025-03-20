@@ -5,44 +5,40 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { FaApple } from "react-icons/fa6";
 
 import phone from '../../assets/image/phone.png';
-import smsung from '../../assets/image/large.jpg'
-import ps5black from '../../assets/image/psBlack5.png'
+import smsung from '../../assets/image/large.jpg';
+import ps5black from '../../assets/image/psBlack5.png';
 import { getCategories } from '../../redux/Cotegory/CotegorySlice';
 import './Banner.scss';
-import { Link } from 'react-router-dom';
-
+import { setCotegory } from '../../redux/Product/ProductSlice';
 
 function Banner() {
     const dispatch = useDispatch();
     const { categories } = useSelector((state) => state.category);
 
     useEffect(() => {
-        dispatch(getCategories())
-            .unwrap()
-            .catch((error) => {
-                console.error("Failed to fetch categories:", error);
-            });
+        dispatch(getCategories());
     }, [dispatch]);
 
-    // console.log(categories);
+    function sendItem(item) {
+        dispatch(setCotegory(item));
+        
+    }
 
     return (
         <div className='banner container'>
             <div className='side-bar'>
                 <ul>
-                    {Array.isArray(categories) && categories.map((item, index) => (
-                        <li key={index}>
-                            <Link to={`/product/${item}`}>
-                                {item}
-                            </Link>
+                    <li onClick={() => sendItem('')}>All</li>
+                    {Array.isArray(categories) && categories.length > 0 && categories.map((item, index) => (
+                        <li key={index} onClick={() => sendItem(item)}>
+                            {item}
                         </li>
                     ))}
                 </ul>
             </div>
             <div className='corousel'>
                 <Carousel>
-                    <Carousel.Item >
-                        {/* <img src={bannerImage} alt="Promotional Banner" /> */}
+                    <Carousel.Item>
                         <div style={{ background: "black", color: "white" }} className='bg'>
                             <div>
                                 <div>
@@ -50,30 +46,23 @@ function Banner() {
                                     <p style={{ marginTop: "15px" }}>iPhone 14 Series</p>
                                 </div>
                                 <h1>Up to 10% off Voucher</h1>
-                                <a href=""><p>Shop Now</p><FaArrowAltCircleRight /> </a>
+                                <a href="/shop">
+                                    <p>Shop Now</p>
+                                    <FaArrowAltCircleRight />
+                                </a>
                             </div>
-                            <img src={phone} alt="" />
+                            <img src={phone} alt="iPhone 14 Series" />
                         </div>
-                        <Carousel.Caption>
-
-                        </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className="promo-banner">
-                            <img src={smsung} alt="" />
+                            <img src={smsung} alt="Samsung Promotion" />
                         </div>
-                        <Carousel.Caption>
-
-                        </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='promo-banner'>
-                            <img style={{ width: "100%" }} src={ps5black} alt="" />
-
+                            <img style={{ width: "100%" }} src={ps5black} alt="PS5 Black Edition" />
                         </div>
-                        <Carousel.Caption>
-
-                        </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
             </div>

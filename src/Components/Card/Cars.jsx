@@ -13,12 +13,12 @@ function Card({ el }) {
     return (
         <div className='product'>
             <div className='image'>
-                <Link to={`/product/${el.category}`}>
-                    <img src={el.images} alt="" />
-                </Link>
+                    <img src={el.thumbnail} alt="" />
                 <button className='discount'>-{el.discountPercentage}%</button>
                 <button className='heart'><CiHeart /></button>
+                <Link to={`/product/${el.id}`}>
                 <button className='eye'><LuEye /></button>
+                </Link>
                 <button className='card'><p>Add To Cart</p></button>
             </div>
             <div className='title'>

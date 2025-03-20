@@ -1,12 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
-import Home from "./Pages/Home";
+import Home from "./Pages/Home/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Service from "./Pages/Service";
 import SIgniIn from "./Pages/rgestration/SIgniIn";
 import SigneUP from "./Pages/rgestration/SigneUP";
-import Cotegory from "./Pages/Cotegory/Cotegory";
+import WishList from "./Pages/WishList/WishList";
+import Cart from "./Pages/Cart/Cart";
+import ProductDeteails from "./Pages/ProductDeteails/ProductDeteails";
+
 
 
 
@@ -21,7 +24,10 @@ export const myRouter = createBrowserRouter([
             { path: "/service", element: <Service/> },
             { path: "/sign-in", element: <SIgniIn/> },
             { path: "/sign-up", element: <SigneUP/> },
-            { path: "/product/:cotegory", element: <Cotegory/> }, 
+            { path: "/wish-list", element: <WishList/> },
+            { path: "/cart", element: <Cart/> },
+            { path: "/product/:id", element: <ProductDeteails/> },
+
             
         ]
     }
