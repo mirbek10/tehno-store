@@ -53,7 +53,6 @@ function ProductDetails() {
         setSelectedSize(size);
     };
 
-    // Функция для изменения основной картинки
     const handleImageClick = (image) => {
         setMainImage(image);
     };

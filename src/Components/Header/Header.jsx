@@ -4,13 +4,15 @@ import './header.scss'
 import { FaRegHeart } from "react-icons/fa6";
 import { FaCartArrowDown } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setSearch } from '../../redux/Product/ProductSlice';
+import { useTranslation } from 'react-i18next';
 
 
 function Header() {
     const dispatch = useDispatch();
     const [text, setText] = useState('')
+    const { t, i18n } = useTranslation();
 
 
     function handlKyeDown (e)  {
@@ -18,6 +20,11 @@ function Header() {
             dispatch(setSearch(text))
             setText('')
         }
+
+    }
+    function HandleChangeLNG(e) {
+        let lng = e.target.value
+        i18n.changeLanguage(lng)
     }
     return (
         <header className='header'>
@@ -26,7 +33,7 @@ function Header() {
                     <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
                         <Link>ShopNow</Link>
                     </p>
-                    <select>
+                    <select onChange={HandleChangeLNG}>
                         <option value="kg">KGZ</option>
                         <option value="en">ENG</option>
                         <option value="ru">RUS</option>
@@ -35,19 +42,19 @@ function Header() {
             </div>
             <div className='main-header conteainer'>
                 <div className="header-left">
-                    <Link to="/">Exclusive</Link>
+                    <Link to="/">{t('logo')}</Link>
                     <ul>
                         <li>
-                            <Link to="/">home</Link>
+                            <Link to="/">{t('home')}</Link>
                         </li>
                         <li>
-                            <Link to="contact">contact</Link>
+                            <Link to="contact">{t('contact')}</Link>
                         </li>
                         <li>
-                            <Link to="about">about</Link>
+                            <Link to="about">{t('about')} </Link>
                         </li>
                         <li>
-                            <Link to='/sign-up'>Sign Up</Link>
+                            <Link to='/sign-up'>{t('logIn')}</Link>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +65,7 @@ function Header() {
                         onChange={(e)=>setText(e.target.value)}
                         onKeyDown={handlKyeDown}
                         type="text"
-                         placeholder='What are you looking for?' />
+                         placeholder={t('search')} />
                         <CiSearch />
                     </div>
                     <div className="icons">

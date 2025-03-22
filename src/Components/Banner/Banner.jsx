@@ -10,10 +10,14 @@ import ps5black from '../../assets/image/psBlack5.png';
 import { getCategories } from '../../redux/Cotegory/CotegorySlice';
 import './Banner.scss';
 import { setCotegory } from '../../redux/Product/ProductSlice';
+import { useTranslation } from 'react-i18next';
 
 function Banner() {
     const dispatch = useDispatch();
     const { categories } = useSelector((state) => state.category);
+
+    const { t , i18n } = useTranslation();
+
 
     useEffect(() => {
         dispatch(getCategories());
@@ -24,19 +28,24 @@ function Banner() {
         
     }
 
+
+
+
+
     return (
         <div className='banner container'>
             <div className='side-bar'>
+
                 <ul>
                     <li onClick={() => sendItem('')}>All</li>
                     {Array.isArray(categories) && categories.length > 0 && categories.map((item, index) => (
                         <li key={index} onClick={() => sendItem(item)}>
-                            {item}
+                           {item}
                         </li>
                     ))}
                 </ul>
             </div>
-            <div className='corousel'>
+            <div className='carousel'>
                 <Carousel>
                     <Carousel.Item>
                         <div style={{ background: "black", color: "white" }} className='bg'>
@@ -69,5 +78,6 @@ function Banner() {
         </div>
     );
 }
+
 
 export default Banner;

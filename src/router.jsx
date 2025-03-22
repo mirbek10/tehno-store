@@ -9,6 +9,7 @@ import SigneUP from "./Pages/rgestration/SigneUP";
 import WishList from "./Pages/WishList/WishList";
 import Cart from "./Pages/Cart/Cart";
 import ProductDeteails from "./Pages/ProductDeteails/ProductDeteails";
+import NotFound from "./Pages/NotFound/NoteFound";
 
 
 
@@ -27,6 +28,7 @@ export const myRouter = createBrowserRouter([
             { path: "/wish-list", element: <WishList/> },
             { path: "/cart", element: <Cart/> },
             { path: "/product/:id", element: <ProductDeteails/> },
+            { path: "*", element: <NotFound/> } 
 
             
         ]
