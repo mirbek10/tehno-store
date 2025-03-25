@@ -41,6 +41,36 @@
                 border: none;
                 border-bottom: 1px solid #000;
             }
+            .password-show{
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                font-size: 18px;
+                position: relative;
+                margin-top: -13px;
+
+                input{
+                    width: 100%;
+                    padding: 10px 0;
+                    border: none;
+                    border-bottom: 1px solid #000;
+                    transition: all 0.5s ease-in-out;
+                    &:focus{
+                        outline: none;
+                        border-color: #000;
+                    }
+                }
+                div{
+                    position: absolute;
+                    right: 0;
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                        color: #DB4444;
+                        cursor: pointer;
+                    }   
+                }
+            }
         }
 
         div {

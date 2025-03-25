@@ -23,10 +23,10 @@ function Banner() {
         dispatch(getCategories());
     }, [dispatch]);
 
-    function sendItem(item) {
-        dispatch(setCotegory(item));
+    // function sendItem(item) {
+    //     dispatch(setCotegory(item));
         
-    }
+    // }
 
 
 

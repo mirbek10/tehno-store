@@ -7,6 +7,7 @@ import { CiSearch } from "react-icons/ci";
 import { useDispatch } from 'react-redux';
 import { setSearch } from '../../redux/Product/ProductSlice';
 import { useTranslation } from 'react-i18next';
+import { FaRegUser } from "react-icons/fa";
 
 
 function Header() {
@@ -74,6 +75,9 @@ function Header() {
                         </Link>
                         <Link to='/cart'>
                             <FaCartArrowDown />
+                        </Link>
+                        <Link to="profile">
+                            <FaRegUser/>
                         </Link>
                         
                     </div>
