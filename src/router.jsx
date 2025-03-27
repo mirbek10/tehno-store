@@ -30,7 +30,7 @@ export const myRouter = createBrowserRouter([
             { path: "/cart", element: <Cart/> },
             { path: "/product/:id", element: <ProductDeteails/> },
             { path: "*", element: <NotFound/> } ,
-            { path: "/profile", element: <Profile/> }
+            { path: "/profile", element: <Profile/> },
 
             
         ]
