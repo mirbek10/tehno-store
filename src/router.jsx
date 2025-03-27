@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Pages/Home/Home";
-import About from "./Pages/About";
+
+import Checkout from "./Pages/Checkout/Checkout";
 import Contact from "./Pages/Contact";
 import Service from "./Pages/Service";
 import SIgniIn from "./Pages/rgestration/SIgniIn";
@@ -10,7 +11,8 @@ import WishList from "./Pages/WishList/WishList";
 import Cart from "./Pages/Cart/Cart";
 import ProductDeteails from "./Pages/ProductDeteails/ProductDeteails";
 import NotFound from "./Pages/NotFound/NoteFound";
-import Profile from "./Pages/rgestration/Profile/Profile";
+// import Profile from "./Pages/rgestration/Profile/Profile";
+import Account from "./Pages/Profile/Account";
 
 
 
@@ -21,7 +23,7 @@ export const myRouter = createBrowserRouter([
         element: <Layout/>,
         children: [
             { path: "/", element: <Home/> },
-            { path: "/about", element: <About/> },
+            { path: "/chekOut", element: <Checkout/> },
             { path: "/contact", element: <Contact/> },
             { path: "/service", element: <Service/> },
             { path: "/sign-in", element: <SIgniIn/> },
@@ -30,7 +32,9 @@ export const myRouter = createBrowserRouter([
             { path: "/cart", element: <Cart/> },
             { path: "/product/:id", element: <ProductDeteails/> },
             { path: "*", element: <NotFound/> } ,
-            { path: "/profile", element: <Profile/> },
+            { path: "/profile", element: <Account/> },
+
+
 
             
         ]

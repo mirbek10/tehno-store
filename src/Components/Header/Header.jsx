@@ -52,7 +52,7 @@ function Header() {
                             <Link to="contact">{t('contact')}</Link>
                         </li>
                         <li>
-                            <Link to="about">{t('about')} </Link>
+                            <Link to="chekOut">{t('about')} </Link>
                         </li>
                         <li>
                             <Link to='/sign-up'>{t('logIn')}</Link>
